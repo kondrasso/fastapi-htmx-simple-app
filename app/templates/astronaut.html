@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <model-viewer id="pan-demo" auto-rotate camera-controls oncontextmenu="return false;" src="static/models/NeilArmstrong.glb" alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"></model-viewer>
+  </div>
+</body>
+</html> -->
+
+
+{% extends "base.html" %}
+
+{% block head %}
+
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<model-viewer class="fullscreen-model-viewer" alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src="static/models/NeilArmstrong.glb" ar environment-image="static/models/moon_1k.hdr" poster="static/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+
+{% endblock %}

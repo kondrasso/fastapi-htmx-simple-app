@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Grainy Gradient</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Poppins font -->
+    <link rel="stylesheet" href="static/css/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="grainy-gradient"></div>
+    <div class="grain"></div>
+    <div class="dropdown">
+        <button class="dropdown-button">Menu &#9660;</button>
+        <div class="dropdown-content">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact</a>
+            <!-- Add more links as needed -->
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <script>
+    // JavaScript for animating the gradient based on mouseover
+    let degree = 0;
+    const gradientElement = document.querySelector('.grainy-gradient');
+
+    // Function to update the gradient based on the mouse position
+    function updateGradientOnMouseOver(event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        // Calculate the gradient degree based on mouse position
+        degree = (mouseX / window.innerWidth) * 360;
+        
+        // Update the gradient background
+        gradientElement.style.background = `linear-gradient(${degree}deg, #ff007f, #ffa500)`; /* More saturated colors */
+    }
+
+    // Add mouseover event listener to update the gradient
+    gradientElement.addEventListener('mousemove', updateGradientOnMouseOver);
+
+    </script>
+    
+</body>
+</html>

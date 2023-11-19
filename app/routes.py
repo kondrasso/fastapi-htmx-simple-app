@@ -10,5 +10,13 @@ current_dir = dirname(__file__)
 templates = Jinja2Templates(directory=join(current_dir, 'templates'))
 
 @router.get("/")
-def index(request: Request):
-    return templates.TemplateResponse("shared/_base.html", {"request": request})
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@router.get("/astronaut")
+async def astronaut(request: Request):
+    return templates.TemplateResponse("astronaut.html", {"request": request})
+
+@router.get("/about")
+async def astronaut(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
